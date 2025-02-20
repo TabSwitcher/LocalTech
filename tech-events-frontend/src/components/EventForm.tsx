@@ -4,7 +4,7 @@ import { useState, useEffect, FormEvent, ChangeEvent } from 'react';
 import { Input } from '@/components/ui/input';
 import { Button } from '@/components/ui/button';
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select';
-import { Calendar } from '@/components/ui/calendar'; // Import the shadcn Calendar component
+import { Calendar } from '@/components/ui/calendar';
 import { EventType } from '../app/page';
 import { useToast } from "@/hooks/use-toast";
 
@@ -25,6 +25,7 @@ const initialFormState: EventType = {
 
 const EventForm: React.FC<EventFormProps> = ({ selectedEvent, onSuccess }) => {
 
+  //This's how its simple to do a toast with shadcn library
   const { toast } = useToast();
 
   const [formData, setFormData] = useState<EventType>(initialFormState);
@@ -111,7 +112,7 @@ const EventForm: React.FC<EventFormProps> = ({ selectedEvent, onSuccess }) => {
             onSelect={(date) => {
               if (date) {
                 setSelectedDate(date);
-                // I'm converting date to YYYY-MM-DD string format
+                // I'm converting date to YYYY-MM-DD string format in order to use it
                 const isoDate = date.toISOString().split("T")[0];
                 setFormData(prev => ({ ...prev, eventDate: isoDate }));
               }
