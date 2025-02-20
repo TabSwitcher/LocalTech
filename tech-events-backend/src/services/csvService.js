@@ -2,6 +2,8 @@ import fs from 'fs';
 import csv from 'csvtojson';
 import { Parser } from 'json2csv';
 
+
+// Here we are using CSV as database according to the requirements in email
 const CSV_FILE_PATH = './events.csv';
 const CSV_HEADER = 'id,eventName,location,address,organizerName,eventDate,eventTime,eventType\n';
 
